@@ -5,3 +5,11 @@
 
 ## 과제 제출 과정
 * [과제 제출 방법](https://github.com/next-step/nextstep-docs/tree/master/precourse)
+
+## 🐯Task
+* branch : step0/constraint
+  * 제약사항 중 일부를 확인
+  * Random 및 Scanner API 대신 사용할 라이브러리
+    * camp.nextstep.edu.missionutils에서 제공하는 Randoms 및 Console API
+  * 자바 코드 컨벤션
+  
