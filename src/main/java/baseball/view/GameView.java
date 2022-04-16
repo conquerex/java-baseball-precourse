@@ -1,5 +1,6 @@
-package baseball;
+package baseball.view;
 
+import baseball.controller.GameController;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ public class GameView {
 
     List<Integer> answer = new ArrayList<>();
 
-    void start() {
+    public void start() {
         answer = controller.getAnswer();
         checkValue(answer);
         boolean isPlaying = true;
