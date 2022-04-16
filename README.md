@@ -31,8 +31,12 @@
 * [x] Computher : 임의의 3자리 숫자 생성 --> Answer
   * [x] 숫자 범위는 1~9
   * [x] 숫자는 겹쳐지면 안된다. (ex. 111은 불가)
-* [ ] Player : 3자리 숫자를 입력할 수 있다 --> Input
-* [ ] Computher : 입력한 숫자의 힌트를 제공한다 --> Hint
+* [x] Player : 3자리 숫자를 입력할 수 있다 --> Input
+* [x] Computher : 입력한 숫자의 힌트를 제공한다 --> Hint
+  * [x] 스트라이크 갯수를 셀 수 있다
+  * [x] 볼 갯수를 셀 수 있다
+  * [x] 낫싱을 확인할 수 있다
+  * [x] 최종 정답을 확인할 수 있다
 * [ ] Computher : 정답을 맞추면 게임 종료 or 재시작
 * [ ] Player : 게임 종료 or 재시작을 선택
 * [ ] Computher : 잘못된 값이 입력되면 IllegalArgumentException 발생 후 애플리케이션 종료
