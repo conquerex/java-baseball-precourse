@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Game {
+public class GameView {
 
     private GameController controller = new GameController();
 
@@ -18,22 +18,20 @@ public class Game {
 
     void start() {
         answer = controller.getAnswer();
-
-        // todo : 확인용. 개발 이후 제거 예정
-        for (int i = 0; i < answer.size(); i++) {
-            System.out.println(answer.get(i));
-        }
-
+        checkValue(answer);
         boolean isPlaying = true;
         while (isPlaying) {
             isPlaying = playResult();
         }
+        System.out.println(TEXT_RETRY_OR_EXIT);
+        retryOrExit();
     }
 
     boolean playResult() {
         System.out.print(TEXT_INPUT_NUMBER);
         String playerInput = Console.readLine();
         List<Integer> input = controller.getInputFromString(playerInput);
+        checkValue(input);
         int sCount = controller.countStrike(answer, input);
         int bCount = controller.countBall(answer, input);
         if (isNothing(sCount, bCount)) return true;
@@ -41,8 +39,12 @@ public class Game {
         return !isGameOver(sCount);
     }
 
-    void end() {
-        System.out.println(TEXT_RETRY_OR_EXIT);
+    // todo : 확인용. 개발 이후 제거 예정
+    @Deprecated
+    void checkValue(List<Integer> list) {
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
     }
 
     void retryOrExit() {

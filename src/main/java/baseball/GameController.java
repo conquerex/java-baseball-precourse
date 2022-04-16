@@ -25,12 +25,6 @@ public class GameController {
         for (int i = 0; i < playerInput.length(); i++) {
             input.add(playerInput.charAt(i) - '0');
         }
-
-        // todo : 확인용. 개발 이후 제거 예정
-        for (int i = 0; i < input.size(); i++) {
-            System.out.println(input.get(i));
-        }
-
         return input;
     }
 

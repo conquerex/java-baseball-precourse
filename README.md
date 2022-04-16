@@ -8,7 +8,7 @@
 
 ## 😍 Constraint Check List
 * 요구사항 1
-  * [ ] 시작점 main()
+  * [x] ~~시작점 main()~~
   * [x] ~~JDK 8~~
   * [x] ~~camp.nextstep.edu.missionutils~~
   * [ ] 2개의 테스트 케이스
@@ -28,6 +28,8 @@
   * [ ] 프리코스 과제 제출 문서
 * 기타
   * [ ] MVC 구조
+  * [ ] Validate Code 추가
+  * [ ] IllegalArgumentException 처리
 
 ## 🍔 Feature
 * [x] Computher : 임의의 3자리 숫자 생성 --> Answer
@@ -63,18 +65,20 @@
 ...
 ```
 
-## 🐯Task
-* branch : step0/constraint
+## 🐯 Task
+* **branch : step0/constraint**
   * 제약사항 중 일부를 확인
   * Random 및 Scanner API 대신 사용할 라이브러리
     * camp.nextstep.edu.missionutils에서 제공하는 Randoms 및 Console API
   * 자바 코드 컨벤션
-* branch : step1/makegame
+* **branch : step1/makegame**
   * 게임 생성 및 정답용 숫자 생성
   * 정답용 3자리 숫자에는 중복 숫자가 없어야 한다
   * 플레이어가 숫자를 입력할 수 있어야 한다.
-* branch : step2/showhint
+* **branch : step2/showhint**
   * 입력한 숫자의 힌트를 확인할 수 있다.
   * 정답을 맞췄을 경우, 재시도와 종료를 고를 수 있다.
-* branch : step3/refactor
+* **branch : step3/refactor**
   * MVC 구조로 변경
+  * Validate code 추가
+  * IllegalArgumentException 처리
