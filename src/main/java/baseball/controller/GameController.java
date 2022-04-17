@@ -1,7 +1,11 @@
 package baseball.controller;
 
+import static baseball.model.HintType.BALL;
+import static baseball.model.HintType.STRIKE;
+
 import baseball.model.GameAnswerModel;
 import baseball.model.GameInputModel;
+import baseball.model.HintType;
 import java.util.List;
 
 public class GameController {
@@ -12,19 +16,19 @@ public class GameController {
     private final String TEXT_RESULT_STRIKE = "스트라이크";
     private final String TEXT_RESULT_BALL = "볼 ";
 
-    GameAnswerModel answerModel;
-    GameInputModel inputModel;
+    private GameAnswerModel answerModel;
+    private GameInputModel inputModel;
 
     public void init() {
         answerModel = new GameAnswerModel(NUMBER_COUNT);
         inputModel = new GameInputModel();
     }
 
-    public List<Integer> getNewAnswer() {
+    public List<Integer> getAnswer() {
         return answerModel.getAnswer();
     }
 
-    public List<Integer> getInputFromString(String playerInput) {
+    public void getInputFromString(String playerInput) {
         if (playerInput.length() != 3) {
             throw new IllegalArgumentException();
         }
@@ -33,10 +37,9 @@ public class GameController {
             validateValue(playerInput.charAt(i) - 0);
             inputModel.setInput(playerInput.charAt(i) - '0');
         }
-        return inputModel.getInput();
     }
 
-    void validateValue(int value) {
+    public void validateValue(int value) {
         if (value < NUMBER_ASCII_1 || value > NUMBER_ASCII_9) {
             throw new IllegalArgumentException();
         }
@@ -50,8 +53,8 @@ public class GameController {
         return count;
     }
 
-    int checkStrike(int position) {
-        if (answerModel.getAnswer().get(position).equals(inputModel.getInput().get(position))) {
+    private int checkStrike(int position) {
+        if (answerModel.getValue(position) == inputModel.getValue(position)) {
             return 1;
         }
         return 0;
@@ -65,30 +68,34 @@ public class GameController {
         return count;
     }
 
-    int checkBall(int position) {
-        if (!answerModel.getAnswer().get(position).equals(inputModel.getInput().get(position))
-            && answerModel.getAnswer().contains(inputModel.getInput().get(position))) {
+    private int checkBall(int position) {
+        if (answerModel.getValue(position) != inputModel.getValue(position)
+            && answerModel.getAnswer().contains(inputModel.getValue(position))) {
             return 1;
         }
         return 0;
     }
 
     public String getHint(int strike, int ball) {
-        return getBallMessage(ball) + getStrikeMessage(strike);
+        return messageBuilder(BALL, ball) + messageBuilder(STRIKE, strike);
     }
 
-    String getStrikeMessage(int strike) {
-        if (strike > 0) {
-            return strike + TEXT_RESULT_STRIKE;
+    private String messageBuilder(HintType type, int count) {
+        switch (type) {
+            case STRIKE: return count + TEXT_RESULT_STRIKE;
+            case BALL: return count + TEXT_RESULT_BALL;
         }
         return "";
     }
 
-    String getBallMessage(int ball) {
-        if (ball > 0) {
-            return ball + TEXT_RESULT_BALL;
-        }
-        return "";
+    public boolean isNothing(int sum) {
+        if (sum == 0) return true;
+        return false;
+    }
+
+    public boolean isGameOver(int strike) {
+        if (strike == 3) return true;
+        return false;
     }
 
 }
