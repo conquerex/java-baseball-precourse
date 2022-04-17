@@ -27,7 +27,7 @@
   * [ ] commit 단위는 의미있는 단위로
   * [ ] 프리코스 과제 제출 문서
 * 기타
-  * [ ] MVC 구조
+  * [x] ~~MVC 구조~~
   * [ ] Validate Code 추가
   * [ ] IllegalArgumentException 처리
 

@@ -8,7 +8,6 @@ public class GameView {
 
     private GameController controller = new GameController();
 
-
     private final String TEXT_INPUT_NUMBER = "숫자를 입력해주세요 : ";
     private final String TEXT_RESULT_NOTHING = "낫싱";
     private final String TEXT_RESULT_CORRECT = "3개의 숫자를 모두 맞히셨습니다! 게임종료";
@@ -16,6 +15,7 @@ public class GameView {
     private final String TEXT_GAME_OVER = "\n\n<<<<< GAME OVER >>>>>\n\n";
 
     public void start() {
+        controller.init();
         List<Integer> answer = controller.getNewAnswer();
         checkValue(answer);
         boolean isPlaying = true;
@@ -31,8 +31,8 @@ public class GameView {
         String playerInput = Console.readLine();
         List<Integer> input = controller.getInputFromString(playerInput);
         checkValue(input);
-        int sCount = controller.countStrike(input);
-        int bCount = controller.countBall(input);
+        int sCount = controller.countStrike();
+        int bCount = controller.countBall();
         if (isNothing(sCount, bCount)) return true;
         System.out.println(controller.getHint(sCount, bCount));
         return !isGameOver(sCount);
