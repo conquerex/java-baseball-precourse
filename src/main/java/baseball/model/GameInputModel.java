@@ -1,21 +1,18 @@
 package baseball.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class GameInputModel {
-
-    List<Integer> input = new ArrayList<>();
+public class GameInputModel extends GameModel {
 
     public List<Integer> getInput() {
-        return input;
+        return list;
     }
 
     public void setInput(Integer input) {
-        this.input.add(input);
+        this.list.add(input);
     }
 
     public void clear() {
-        this.input.clear();
+        this.list.clear();
     }
 }

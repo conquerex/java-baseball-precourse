@@ -1,13 +1,10 @@
 package baseball.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-public class GameAnswerModel {
-
-    List<Integer> answer = new ArrayList<>();
+public class GameAnswerModel extends GameModel {
 
     public GameAnswerModel(int numberSize) {
         // 중복 제거를 위한 HashSet
@@ -15,14 +12,10 @@ public class GameAnswerModel {
         while (set.size() < numberSize) {
             set.add(Randoms.pickNumberInRange(1, 9));
         }
-        this.answer.addAll(set);
+        this.list.addAll(set);
     }
 
     public List<Integer> getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(List<Integer> answer) {
-        this.answer = answer;
+        return list;
     }
 }
