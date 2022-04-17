@@ -1,9 +1,11 @@
 package baseball;
 
+import baseball.view.GameView;
+
 public class Application {
 
     public static void main(String[] args) {
-        Game game = new Game();
-        game.play();
+        GameView game = new GameView();
+        game.start();
     }
 }
