@@ -17,7 +17,6 @@ public class GameView {
     public void start() {
         controller.init();
         List<Integer> answer = controller.getNewAnswer();
-        checkValue(answer);
         boolean isPlaying = true;
         while (isPlaying) {
             isPlaying = playResult(answer);
@@ -29,8 +28,7 @@ public class GameView {
     boolean playResult(List<Integer> answer) {
         System.out.print(TEXT_INPUT_NUMBER);
         String playerInput = Console.readLine();
-        List<Integer> input = controller.getInputFromString(playerInput);
-        checkValue(input);
+        controller.getInputFromString(playerInput);
         int sCount = controller.countStrike();
         int bCount = controller.countBall();
         if (isNothing(sCount, bCount)) return true;

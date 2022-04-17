@@ -12,18 +12,18 @@
   * [x] JDK 8
   * [x] camp.nextstep.edu.missionutils
   * [x] 2개의 테스트 케이스
-* [ ] 요구사항 2
+* [x] 요구사항 2
   * [x] 자바 코드 컨벤션
-  * [ ] Indent depth == 1
-  * [ ] Stream api는 사용하지 않는다. Lambda는 가능.
+  * [x] Indent depth == 1
+  * [x] Stream api는 사용하지 않는다. Lambda는 가능.
   * [x] else 사용 금지
-  * [ ] 함수 라인 길이 <= 10
+  * [x] 함수 라인 길이 <= 10
 * [ ] 요구사항 3
   * [ ] 도메인 로직에 단위테스트를 구현
-  * [ ] Junit 학습하기
+  * [x] Junit 학습하기
 * [ ] 과제진행 요구사항
   * [x] folk/clone으로 시작
-  * [ ] 기능구현 전 Readme.md에 정리
+  * [x] 기능구현 전 Readme.md에 정리
   * [ ] commit 단위는 의미있는 단위로
   * [ ] 프리코스 과제 제출 문서
 * [x] 기타
