@@ -7,6 +7,8 @@ import java.util.List;
 public class GameController {
 
     private final int NUMBER_COUNT = 3;
+    private final int NUMBER_ASCII_1 = 49;
+    private final int NUMBER_ASCII_9 = 57;
     private final String TEXT_RESULT_STRIKE = "스트라이크";
     private final String TEXT_RESULT_BALL = "볼 ";
 
@@ -23,11 +25,21 @@ public class GameController {
     }
 
     public List<Integer> getInputFromString(String playerInput) {
+        if (playerInput.length() != 3) {
+            throw new IllegalArgumentException();
+        }
         inputModel.clear();
         for (int i = 0; i < playerInput.length(); i++) {
+            validateValue(playerInput.charAt(i) - 0);
             inputModel.setInput(playerInput.charAt(i) - '0');
         }
         return inputModel.getInput();
+    }
+
+    void validateValue(int value) {
+        if (value < NUMBER_ASCII_1 || value > NUMBER_ASCII_9) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public int countStrike() {

@@ -29,7 +29,6 @@
 * 기타
   * [x] ~~MVC 구조~~
   * [ ] Validate Code 추가
-  * [ ] IllegalArgumentException 처리
 
 ## 🍔 Feature
 * [x] Computher : 임의의 3자리 숫자 생성 --> Answer
@@ -43,7 +42,11 @@
   * [x] 최종 정답을 확인할 수 있다
 * [x] Computher : 정답을 맞추면 게임 종료 or 재시작
 * [x] Player : 게임 종료 or 재시작을 선택
-* [ ] Computher : 잘못된 값이 입력되면 IllegalArgumentException 발생 후 애플리케이션 종료
+* [x] Computher : 잘못된 값이 입력되면 IllegalArgumentException 발생 후 애플리케이션 종료
+  * [x] input 자릿수 오류
+  * [x] input 숫자가 아닌 입력 오류
+  * [x] input 숫자 범위 오류
+  * [x] 게임종료 후 입력 오류
 
 ## ⚾️ Example
 ```
