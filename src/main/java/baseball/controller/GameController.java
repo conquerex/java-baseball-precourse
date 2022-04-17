@@ -1,8 +1,7 @@
 package baseball.controller;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import baseball.model.GameAnswerModel;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 public class GameController {
@@ -11,13 +10,11 @@ public class GameController {
     private final String TEXT_RESULT_STRIKE = "스트라이크";
     private final String TEXT_RESULT_BALL = "볼 ";
 
-    public ArrayList<Integer> getAnswer() {
-        // 중복 제거를 위한 HashSet
-        HashSet<Integer> set = new HashSet<>(NUMBER_COUNT);
-        while (set.size() < NUMBER_COUNT) {
-            set.add(Randoms.pickNumberInRange(1, 9));
-        }
-        return new ArrayList<>(set);
+    GameAnswerModel answerModel;
+
+    public List<Integer> getNewAnswer() {
+        answerModel = new GameAnswerModel(NUMBER_COUNT);
+        return answerModel.getAnswer();
     }
 
     public List<Integer> getInputFromString(String playerInput) {
@@ -28,10 +25,10 @@ public class GameController {
         return input;
     }
 
-    public int countStrike(List<Integer> answer, List<Integer> input) {
+    public int countStrike(List<Integer> input) {
         int count = 0;
         for (int i = 0; i < NUMBER_COUNT; i++) {
-            count = count + checkStrike(answer.get(i), input.get(i));
+            count = count + checkStrike(answerModel.getAnswer().get(i), input.get(i));
         }
         return count;
     }
@@ -43,16 +40,16 @@ public class GameController {
         return 0;
     }
 
-    public int countBall(List<Integer> answer, List<Integer> input) {
+    public int countBall(List<Integer> input) {
         int count = 0;
         for (int i = 0; i < NUMBER_COUNT; i++) {
-            count = count + checkBall(answer, answer.get(i), input.get(i));
+            count = count + checkBall(answerModel.getAnswer().get(i), input.get(i));
         }
         return count;
     }
 
-    int checkBall(List<Integer> answer, int answerNumber, int inputNumber) {
-        if (answerNumber != inputNumber && answer.contains(inputNumber)) {
+    int checkBall(int answerNumber, int inputNumber) {
+        if (answerNumber != inputNumber && answerModel.getAnswer().contains(inputNumber)) {
             return 1;
         }
         return 0;

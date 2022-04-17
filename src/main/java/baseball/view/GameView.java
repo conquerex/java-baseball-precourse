@@ -2,12 +2,12 @@ package baseball.view;
 
 import baseball.controller.GameController;
 import camp.nextstep.edu.missionutils.Console;
-import java.util.ArrayList;
 import java.util.List;
 
 public class GameView {
 
     private GameController controller = new GameController();
+
 
     private final String TEXT_INPUT_NUMBER = "숫자를 입력해주세요 : ";
     private final String TEXT_RESULT_NOTHING = "낫싱";
@@ -15,26 +15,24 @@ public class GameView {
     private final String TEXT_RETRY_OR_EXIT = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
     private final String TEXT_GAME_OVER = "\n\n<<<<< GAME OVER >>>>>\n\n";
 
-    List<Integer> answer = new ArrayList<>();
-
     public void start() {
-        answer = controller.getAnswer();
+        List<Integer> answer = controller.getNewAnswer();
         checkValue(answer);
         boolean isPlaying = true;
         while (isPlaying) {
-            isPlaying = playResult();
+            isPlaying = playResult(answer);
         }
         System.out.println(TEXT_RETRY_OR_EXIT);
         retryOrExit();
     }
 
-    boolean playResult() {
+    boolean playResult(List<Integer> answer) {
         System.out.print(TEXT_INPUT_NUMBER);
         String playerInput = Console.readLine();
         List<Integer> input = controller.getInputFromString(playerInput);
         checkValue(input);
-        int sCount = controller.countStrike(answer, input);
-        int bCount = controller.countBall(answer, input);
+        int sCount = controller.countStrike(input);
+        int bCount = controller.countBall(input);
         if (isNothing(sCount, bCount)) return true;
         System.out.println(controller.getHint(sCount, bCount));
         return !isGameOver(sCount);
@@ -44,8 +42,9 @@ public class GameView {
     @Deprecated
     void checkValue(List<Integer> list) {
         for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
+            System.out.print(list.get(i));
         }
+        System.out.println("\n");
     }
 
     void retryOrExit() {
