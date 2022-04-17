@@ -7,28 +7,28 @@
 * [과제 제출 방법](https://github.com/next-step/nextstep-docs/tree/master/precourse)
 
 ## 😍 Constraint Check List
-* 요구사항 1
-  * [x] ~~시작점 main()~~
-  * [x] ~~JDK 8~~
-  * [x] ~~camp.nextstep.edu.missionutils~~
-  * [ ] 2개의 테스트 케이스
-* 요구사항 2
-  * [x] ~~자바 코드 컨벤션~~
+* [x] 요구사항 1
+  * [x] 시작점 main()
+  * [x] JDK 8
+  * [x] camp.nextstep.edu.missionutils
+  * [x] 2개의 테스트 케이스
+* [ ] 요구사항 2
+  * [x] 자바 코드 컨벤션
   * [ ] Indent depth == 1
   * [ ] Stream api는 사용하지 않는다. Lambda는 가능.
-  * [ ] else 사용 금지
+  * [x] else 사용 금지
   * [ ] 함수 라인 길이 <= 10
-* 요구사항 3
+* [ ] 요구사항 3
   * [ ] 도메인 로직에 단위테스트를 구현
   * [ ] Junit 학습하기
-* 과제진행 요구사항
-  * [x] ~~folk/clone으로 시작~~
+* [ ] 과제진행 요구사항
+  * [x] folk/clone으로 시작
   * [ ] 기능구현 전 Readme.md에 정리
   * [ ] commit 단위는 의미있는 단위로
   * [ ] 프리코스 과제 제출 문서
-* 기타
-  * [x] ~~MVC 구조~~
-  * [ ] Validate Code 추가
+* [x] 기타
+  * [x] MVC 구조
+  * [x] Validate Code 추가
 
 ## 🍔 Feature
 * [x] Computher : 임의의 3자리 숫자 생성 --> Answer
@@ -85,3 +85,7 @@
   * MVC 구조로 변경
   * Validate code 추가
   * IllegalArgumentException 처리
+* **branch : step4/test**
+  * 입력 순서 이슈로 인해 HashSet을 LinkedHashSet으로 변경
+  * ApplicationTest : 정상
+  * 추가 테스트 생성

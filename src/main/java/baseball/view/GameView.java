@@ -12,7 +12,7 @@ public class GameView {
     private final String TEXT_RESULT_NOTHING = "낫싱";
     private final String TEXT_RESULT_CORRECT = "3개의 숫자를 모두 맞히셨습니다! 게임종료";
     private final String TEXT_RETRY_OR_EXIT = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
-    private final String TEXT_GAME_OVER = "\n\n<<<<< GAME OVER >>>>>\n\n";
+    private final String TEXT_GAME_OVER = "게임 종료";
 
     public void start() {
         controller.init();
