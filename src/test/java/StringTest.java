@@ -59,13 +59,4 @@ class StringTest {
             }).withMessageMatching(String.format("String index out of range: %d", length));
     }
 
-
-    /**
-     *
-     */
-    @Test
-    @DisplayName("요구사항4 : String의 charAt() 메소드를 활용한 테스트")
-    void 요구사항4() {
-
-    }
 }
